@@ -38,7 +38,12 @@ public class TransmitBeacon implements Mission<TransmitBeacon.Parameter> {
 			.setManufacturer(parameter.mManufacturer)
 			.setTxPower(parameter.mTxPower)
 			.setDataFields(parameter.mDataFields)
+			.setBluetoothAddress(parameter.mBluetoothAddress)
+			.setBluetoothName(parameter.mBluetoothName)
 			.build();
+		System.out.println("beacon: " + beacon);
+		System.out.println("beacon address: " + beacon.getBluetoothAddress());
+		System.out.println("beacon type code: " + beacon.getBeaconTypeCode());
 		BeaconParser beaconParser = new BeaconParser().setBeaconLayout(parameter.mBeaconLayout);
 		BeaconTransmitter beaconTransmitter = new BeaconTransmitter(parameter.mContext, beaconParser);
 		beaconTransmitter.setBeacon(beacon);
@@ -52,6 +57,8 @@ public class TransmitBeacon implements Mission<TransmitBeacon.Parameter> {
 		private String mUUID;
 		private String mMajor;
 		private String mMinor;
+		private String mBluetoothAddress;
+		private String mBluetoothName;
 		private int mManufacturer;
 		private int mTxPower;
 		private List<Long> mDataFields;
@@ -66,8 +73,19 @@ public class TransmitBeacon implements Mission<TransmitBeacon.Parameter> {
 			mMinor = minor;
 			mManufacturer = 0x0118;
 			mTxPower = -59;
-			mBeaconLayout = "m:2-3=beac,i:4-19,i:20-21,i:22-23,p:24-24,d:25-25";
+			//AltBeacon
+//			mBeaconLayout = "m:2-3=beac,i:4-19,i:20-21,i:22-23,p:24-24,d:25-25";
+			//iBeacon
+			mBeaconLayout = "m:2-3=0215,i:4-19,i:20-21,i:22-23,p:24-24";
 			mDataFields = Arrays.asList(new Long[] {0l});
+		}
+
+		public void setBluetoothAddress(String address) {
+			mBluetoothAddress = address;
+		}
+
+		public void setBluetoothName(String name) {
+			mBluetoothName = name;
 		}
 	}
 
