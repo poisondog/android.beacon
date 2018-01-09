@@ -28,6 +28,8 @@ import poisondog.core.Mission;
  * @since 2016-12-22
  */
 public class TransmitBeacon implements Mission<TransmitBeacon.Parameter> {
+	public static final String AltBeacon = "m:2-3=beac,i:4-19,i:20-21,i:22-23,p:24-24,d:25-25";
+	public static final String iBeacon = "m:2-3=0215,i:4-19,i:20-21,i:22-23,p:24-24";
 
 	@Override
 	public BeaconTransmitter execute(TransmitBeacon.Parameter parameter) {
@@ -73,10 +75,7 @@ public class TransmitBeacon implements Mission<TransmitBeacon.Parameter> {
 			mMinor = minor;
 			mManufacturer = 0x0118;
 			mTxPower = -59;
-			//AltBeacon
-//			mBeaconLayout = "m:2-3=beac,i:4-19,i:20-21,i:22-23,p:24-24,d:25-25";
-			//iBeacon
-			mBeaconLayout = "m:2-3=0215,i:4-19,i:20-21,i:22-23,p:24-24";
+			mBeaconLayout = iBeacon;
 			mDataFields = Arrays.asList(new Long[] {0l});
 		}
 
