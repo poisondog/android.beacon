@@ -26,8 +26,6 @@ public class MainActivity extends Activity {
 	}
 
 	public void alertClick(View view) {
-		System.out.println("Hi!!!");
-
 		String uuid = mUUID.getText().toString();
 		String major = mMajor.getText().toString();
 		String minor = mMinor.getText().toString();
