@@ -1,6 +1,13 @@
 project.group = 'poisondog'
 project.version = '0.0.1'
 
+repositories {
+	jcenter()
+	maven {
+		url "https://dl.bintray.com/poisondog/poisondog"
+	}
+}
+
 buildscript {
 	repositories {
 		jcenter()
@@ -10,13 +17,11 @@ buildscript {
 		classpath 'com.android.tools.build:gradle:2.2.1'
 	}
 }
-
-apply from: 'repositories.gradle'
 apply plugin: 'com.android.library'
 
 android {
-	compileSdkVersion 17
-	buildToolsVersion "22.0.1"
+	compileSdkVersion 24
+	buildToolsVersion "25.0.2"
 
 	lintOptions {
 		abortOnError false
@@ -25,5 +30,5 @@ android {
 
 dependencies {
 	compile 'org.altbeacon:android-beacon-library:2.9.2'
-	compile 'poisondog:poisondog.commons:3.2.9'
+	compile 'poisondog:poisondog.commons:3.6.5'
 }

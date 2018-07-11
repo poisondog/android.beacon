@@ -1,0 +1,48 @@
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:id="@+id/content"
+	tools:context="${relativePackage}.${activityClass}" >
+
+	<EditText
+		android:id="@+id/uuid"
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:scrollHorizontally="true"
+		android:hint="@string/uuid_hint"
+		android:gravity="fill_horizontal"
+		android:singleLine="true"
+		/>
+
+	<EditText
+		android:id="@+id/major"
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:scrollHorizontally="true"
+		android:hint="@string/major_hint"
+		android:gravity="fill_horizontal"
+		android:singleLine="true"
+		/>
+
+	<EditText
+		android:id="@+id/minor"
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:scrollHorizontally="true"
+		android:hint="@string/minor_hint"
+		android:gravity="fill_horizontal"
+		android:singleLine="true"
+		/>
+
+	<Button
+		android:id="@+id/go"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="Execute"
+		android:onClick="alertClick"
+		/>
+
+</LinearLayout>
